@@ -33,10 +33,9 @@
                         await this.getJoke();
                         let email = parsedEmail;
                         this.divideEmailValue(email)
-                        console.log(this.jokes);
                         await this.sendEmail(email, this.jokes, this.name, this.domain)
                     } else { 
-                        console.log('error please check joke API')
+                        console.log('error with email')
                     }
                 });
             },
