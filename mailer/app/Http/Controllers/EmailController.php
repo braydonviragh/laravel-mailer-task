@@ -16,11 +16,10 @@ class EmailController extends Controller
         $emailDestination = $array['sendTo'];
         $text = $array['joke'];
         $subject = 'Your Chuck Norris Joke';
-        //dd($array['sendTo']);
 
         Mail::send('emails.emailTemplate', $array,
             function ($message) use ($array){ 
-                $message->to($array['sendTo'], 'braydon')
+                $message->to($array['sendTo'], $array['senderName'])
                 ->subject('Your Chuck Norris Joke');
             });
         }
