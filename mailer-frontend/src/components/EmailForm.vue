@@ -125,7 +125,8 @@
                 let confirmationText = document.createElement("p")
 
                 axios.post('http://127.0.0.1:8000/api/send-email', {
-                    body: {'joke': JSON.stringify(this.jokes).replace(/&quot;/g,'"'), 'sendTo': email, "domain": this.domain, "senderName": this.name},
+
+                    body: {'joke': JSON.stringify(this.jokes).replace(/[^\w\s]/gi, ''), 'sendTo': email, "domain": this.domain, "senderName": this.name},
                     headers: {
                         'content-type': 'application/json',
                     }
